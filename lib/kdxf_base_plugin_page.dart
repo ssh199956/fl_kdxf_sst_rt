@@ -12,6 +12,8 @@ class _WsWidgetPageState extends State<WsWidgetPage>
   @override
   void initState() {
     super.initState();
+    //this is your keys of kdxf.
+    setKDXFInfo("", "", "", "");
     KDXFInit();
   }
 

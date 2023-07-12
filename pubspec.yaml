@@ -1,6 +1,6 @@
 name: fl_kdxf_sst_rt
 description: 科大讯飞语音转文字,流式语音听写实现,基于Flutter3.7.10
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/ssh199956/fl_kdxf_sst_rt
 
 environment:

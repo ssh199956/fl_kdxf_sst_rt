@@ -32,6 +32,11 @@ other platforms.
 
 ## Usage
 
+
+```dart
+//'Attention, set this content first before using all content'
+setKDXFInfo("", "", "", "");
+```
 ```dart
 class WsWidgetPage extends StatefulWidget {
   @override
@@ -43,6 +48,8 @@ class _WsWidgetPageState extends State<WsWidgetPage>
   @override
   void initState() {
     super.initState();
+    //this is your keys of kdxf.
+    setKDXFInfo("", "", "", "");
     KDXFInit();
   }
 

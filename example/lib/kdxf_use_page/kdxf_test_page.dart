@@ -1,5 +1,5 @@
+import 'package:fl_kdxf_sst_rt/kdxf_speech/kdxf_plugins/utils/base_kdxf.dart';
 import 'package:flutter/material.dart';
-import '../kdxf_plugins/utils/base_kdxf.dart';
 
 class MyHomeXFPage extends StatefulWidget {
   const MyHomeXFPage({Key? key}) : super(key: key);
@@ -15,6 +15,8 @@ class _MyHomeXFPageState extends State<MyHomeXFPage>
   void initState() {
     super.initState();
     // TODO: implement initState
+    //this is your kdxf keys.
+    setKDXFInfo("", "", "", "");
     KDXFInit();
   }
 
