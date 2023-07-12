@@ -1,61 +1,61 @@
+import 'package:fl_kdxf_sst_rt/kdxf_speech/kdxf_plugins/utils/base_kdxf.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
-import 'package:fl_kdxf_sst_rt/fl_kdxf_sst_rt.dart';
-
 void main() {
-  runApp(const MyApp());
+  runApp(const MyHomeXFPage());
 }
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class MyHomeXFPage extends StatefulWidget {
+  const MyHomeXFPage({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  // ignore: library_private_types_in_public_api
+  _MyHomeXFPageState createState() => _MyHomeXFPageState();
 }
 
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-  final _flKdxfSstRtPlugin = FlKdxfSstRt();
-
+class _MyHomeXFPageState extends State<MyHomeXFPage>
+    with KDXFBaseSpeechRecognitionMixin {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    // TODO: implement initState
+    //this is your kdxf keys.
+    setKDXFInfo("", "", "", "");
+    KDXFInit();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await _flKdxfSstRtPlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+  @override
+  void dispose() {
+    super.dispose();
+    // TODO: implement dispose
+    KDXFDispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('语音听写'),
+      ),
+      body: Center(
+        child: Column(
+          children: <Widget>[
+            Text(
+              showMsg ?? "",
+              style: const TextStyle(color: Colors.red, fontSize: 20),
+            ),
+            ElevatedButton(
+              onPressed: KDXFStartListening,
+              child: const Text('开始录音'),
+            ),
+            ElevatedButton(
+              onPressed: KDXFStopListening,
+              child: const Text('停止录音'),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 50),
+              child: Text(showMsg ?? ''),
+            ),
+          ],
         ),
       ),
     );
