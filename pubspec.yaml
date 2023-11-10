@@ -12,11 +12,11 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.6
   siri_wave: ^0.3.0
   intl: ^0.18.1
   crypto: ^3.0.3
-  permission_handler: ^10.2.0
+  permission_handler: ^11.0.1
 
   web_socket_channel: ^2.4.0
   flutter_sound: ^9.2.13
