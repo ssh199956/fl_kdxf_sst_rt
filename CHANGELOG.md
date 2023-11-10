@@ -11,3 +11,6 @@ All notable changes to this project will be documented in this file.
 ## 0.0.3
 
 * TODO: Modification of example.
+## 0.0.4
+
+* TODO: Modification of third packages updated.
